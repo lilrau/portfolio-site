@@ -1,0 +1,476 @@
+html {
+    overflow-x: hidden;
+}
+
+body {
+    background: #1d1d1d;
+    overflow-x: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+.logo {
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+nav {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: #141414;
+    height: 8vh;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+}
+
+.nav-list li {
+    letter-spacing: 3px;
+    margin-left: 32px;
+}
+
+.mobile-menu {
+    display: none;
+    cursor: pointer;
+}
+
+.mobile-menu div {
+    width: 32px;
+    height: 2px;
+    background: #fff;
+    margin: 8px;
+    transition: 0.3s;
+}
+
+@media (max-width: 999px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .nav-list {
+        position: absolute;
+        top: 8vh;
+        right: 0;
+        width: 50vw;
+        height: 92vh;
+        background: #141414;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        transform: translateX(100%);
+        transition: 0.3s ease-in;
+    }
+
+    .nav-list li {
+        margin-left: 0;
+        opacity: 0;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+}
+
+.nav-list.active {
+    transform: translateX(0);
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.mobile-menu.active .line1 {
+    transform: rotate(-45deg) translate(-8px, 8px);
+}
+
+.mobile-menu.active .line2 {
+    opacity: 0;
+}
+
+.mobile-menu.active .line3 {
+    transform: rotate(45deg) translate(-5px, -7px);
+}
+
+.container {
+    margin-top: 90px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: -200px;
+}
+
+.container .ring {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: -30px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    border-top: 4px solid cyan;
+    animation: animate 3s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.container .ring::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background: cyan;
+    box-shadow: 0 0 0 5px #24eeff33,
+        0 0 0 10px #24ecff22,
+        0 0 0 15px #24ecff11,
+        0 0 0 30px #24ecff01;
+}
+
+.container .ring:nth-child(2) {
+    animation: animate2 3s linear infinite;
+    animation-delay: -3.3s;
+    border-top: 4px solid transparent;
+    border-left: 4px solid #93ff2d;
+}
+
+.container .ring:nth-child(2)::before {
+    content: '';
+    position: absolute;
+    top: initial;
+    bottom: 12px;
+    left: 12px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background: #93ff2d;
+    box-shadow: 0 0 0 5px #93ff2d33,
+        0 0 0 10px #93ff2d22,
+        0 0 0 15px #93ff2d11,
+        0 0 0 30px #93ff2d01;
+}
+
+@keyframes animate2 {
+    0% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.container .ring:nth-child(3) {
+    animation: animate2 3s linear infinite;
+    animation-delay: -1.8s;
+    position: absolute;
+    top: -66.66px;
+    border-top: 4px solid transparent;
+    border-left: 4px solid #e41cf8;
+}
+
+.container .ring:nth-child(3)::before {
+    content: '';
+    position: absolute;
+    top: initial;
+    bottom: 12px;
+    left: 12px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background: #e41cf8;
+    box-shadow: 0 0 0 5px #e41cf833,
+        0 0 0 10px #e41cf822,
+        0 0 0 15px #e41cf811,
+        0 0 0 30px #e41cf801;
+}
+
+.container p {
+    position: absolute;
+    color: #fff;
+    font-size: 1.5em;
+    font-family: consolas;
+    bottom: 240px;
+    letter-spacing: 0.2em;
+}
+
+.box {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 500px;
+    margin-left: 40px;
+    background: #141414;
+    transition: 0.5s;
+    font-family: consolas;
+}
+
+.box:hover {
+    height: 400px;
+}
+
+.box .imgBx {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.box .imgBx img {
+    max-width: 100%;
+    opacity: 0.1;
+    transition: 0.5s;
+}
+
+.box:hover .imgBx img {
+    opacity: 1;
+}
+
+.box::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: #fff;
+    z-index: -1;
+    filter: blur(7px);
+}
+
+.box::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: #fff;
+    z-index: -2;
+    filter: blur(7px);
+}
+
+.box::before,
+.box::after {
+    background: linear-gradient(235deg, #e41cf8, #1d1d1d, #00bcd4);
+}
+
+.box .content {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    height: 90px;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.box:hover .content {
+    opacity: 1;
+}
+
+.box .content h2 {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 1px;
+}
+
+.box .content span {
+    font-size: 14px;
+    color: #fff;
+    font-weight: 200;
+    line-height: 20px;
+    letter-spacing: 2px;
+}
+
+footer {
+    padding: 500px;
+    color: #fff;
+    font-size: 20px;
+}
+
+.bio {
+    background: linear-gradient(235deg, #0c0c0c, #161616);
+    border-radius: 10px;
+    padding: 20px;
+    color: #fff;
+    font-size: 20px;
+    font-family: consolas;
+    max-width: 40%;
+}
+
+.aboutme {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+@media (max-width: 1065px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .nav-list {
+        transform: translateX(100%);
+    }
+
+    .aboutme {
+        display: inline;
+        justify-content: center;
+        align-items: flex-start;
+        margin: 20px;
+    }
+
+    .bio {
+        margin: 35px;
+        max-width: 300px;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+#scrollPath {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+#progressbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 100%;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    animation: animate3 5s linear infinite;
+}
+
+@keyframes animate3 {
+
+    0%,
+    100% {
+        filter: hue-rotate(0deg);
+    }
+
+    50% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+#progressbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    filter: blur(30px);
+}
+
+#progressbar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    filter: blur(30px);
+}
+
+.skills {
+    padding: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.hard,
+.soft {
+    background: linear-gradient(235deg, #0c0c0c, #161616);
+    border-radius: 10px;
+    padding: 20px;
+    color: #fff;
+    font-size: 20px;
+    font-family: consolas;
+    width: 45%;
+}
+
+@media (max-width: 1065px) {
+    .skills {
+        display: inline;
+        justify-content: center;
+        align-items: flex-start;
+        margin: 20px;
+    }
+
+    .hard {
+        margin: 35px;
+        min-width: 265px;
+        max-width: 300px;
+    }
+
+    .soft {
+        margin: 35px;
+        min-width: 265px;
+        max-width: 300px;
+    }
+}
